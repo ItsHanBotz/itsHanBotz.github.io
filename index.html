@@ -9,7 +9,15 @@
   <meta property="og:title" content="Alpha Network">
   <meta property="og:description" content="Alpha Network Minecraft Server">
   <script>
-    window.location.href = "minecraft://?addExternalServer=Alpha%20Network|play.ridhostore.my.id:19132";
+    fetch('https://minecraftpocket-servers.com/api/?object=servers&element=detail&key=dvvTux2Yno32mpgWRqGDkjSSN2aZgneXHN2')
+      .then(response => response.json())
+      .then(data => {
+        const serverAddress = data.address + ':' + data.port;
+        window.location.href = "minecraft://?addExternalServer=Alpha%20Network|" + serverAddress;
+      })
+      .catch(error => {
+        console.error('Terjadi kesalahan:', error);
+      });
   </script>
 </head>
 <body>
